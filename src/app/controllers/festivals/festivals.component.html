@@ -1,0 +1,14 @@
+<h1>Music Festival Data</h1>
+<ng-container *ngIf = "festivalsData$ | async as data">
+  <div class="record-label" *ngFor = "let recordLabel of data.recordLabels; let i = index">
+    {{recordLabel}}
+    <div class="band" *ngFor = "let band of data.bandsOfRecordLabel[i]; let j = index">
+      {{ band }}
+      <div class="festival" *ngFor = "let festival of data.festivalsOfBand[data.bands.indexOf(band)]">
+        {{ festival }}
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
